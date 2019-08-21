@@ -1,0 +1,61 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples on iOS devices-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Select with feature layer</title>
+	<link rel="stylesheet" href="https://js.arcgis.com/3.24/dijit/themes/claro/claro.css">
+	<link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/css/esri.css">
+	<link rel="stylesheet" type="text/css" href="styles/basic.css"/> 
+	<!--link rel="stylesheet" href="css/layout.css"-->
+	<script type="text/javascript"> var dojoConfig = { async: true, parseOnLoad:true };</script>
+	<script src="https://js.arcgis.com/3.24/"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2kE5KTntBM4sqF95C9ic9zWTSYfVCYTQ"></script> 
+	<script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="scripts/main_Sess3.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <!--body class="claro" onload="startTime(this)"-->
+  <body class="claro" onload="startDay(this)">
+    <!--<div id="mapDiv"></div>-->	  
+	<div id="content"
+		 data-dojo-type="dijit/layout/BorderContainer"
+		 data-dojo-props="design:'headline', gutters:true"
+		 style="width: 100%; height: 100%; margin: 0;">
+	  <div id="rightPane"
+		   data-dojo-type="dijit/layout/ContentPane"
+		   data-dojo-props="region:'right'">
+		<div data-dojo-type="dijit/layout/AccordionContainer">
+		  <div data-dojo-type="dijit/layout/ContentPane" id="legendPane"
+			   data-dojo-props="title:'<b>FRI Session Status</b>', selected:true">
+			<div id="legendDiv"></div>
+			  <b><i style="padding-left: 1px !important; font-size: 13px !important;"> </i></b>
+			<!--div id="editorDiv"> </div-->   
+			<div id="messages">  <!--style="width:400px; height:400px; overflow:auto;"> <b>Hydrants within the View</b>--> </div>
+			<div id="DayTime"> </div> 
+			<!--div for menu user enter Pop criteria-->
+			<!--div id="piechart" ></div--> <!--style="width: 250px; height: 200px;"-->
+			<div id="sessionTable" ></div> <!--style="width: 250px; height: 200px;"-->
+			<div id="messages2"> </div>
+			<div id="sessionTable2" ></div> 
+			<div id="messages3"> </div>
+			<div id="sessionTable3" ></div>
+			<!--div id="time"></div-->
+		  </div>
+		</div>
+	  </div> 
+	  <div id="map"
+		   data-dojo-type="dijit/layout/ContentPane"
+		   data-dojo-props="region:'center'"
+		   style="overflow:hidden;">
+		<div id="titleBar">
+			<h1>Fire Rescue International - Atlanta, Georgia</h1><!-- align="center" -->
+			<div id="picLoc"><img src="images/IAFC_Logo_NoBackground_GIF.gif" width="150px" height="150px" /></div> 
+			<div id="search"></div>			
+		</div>   
+	  </div>
+	</div>
+  </body>
+</html>
