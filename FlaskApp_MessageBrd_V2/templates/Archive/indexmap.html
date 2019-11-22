@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+     <title>Insurance Site</title>
+     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <style>
+        table, td, th {
+          border: 2px solid #ddd;
+          text-align: left;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: fit;
+          max-height: 300px;
+          overflow: auto;
+        }
+
+        th, td {
+          padding: 2.5px;
+        }
+        </style>
+
+  </head>
+   <body>
+    <div class="container-fluid" style="border:3px solid #cecece;">
+      <h2 style = "text-align: left;">Apex Insurance Clients</h2>
+		<table>
+			{{ table }}
+		</table>
+        <br />
+
+      <button class="btn-lg" type="submit"><a href = "\edit">Make or Review a Claim</a></button><br/>
+
+      <br/><button class="btn-lg" type="submit"><a href = "\">Back to Home Page</a></button>
+      <!--h2 style = "text-align: left;"><a href = "\">Original Data Table</a></h2-->
+    </div>
+
+   <!--Div Map of Clients -->
+    <div id="map"></div>
+    <script type="text/javascript" src="\apiKeys\config.js">
+      function initMap() {
+        var apikey = config.api_key;
+        var script = document.createElement('script');
+        script.src = "https://maps.googleapis.com/maps/api/js?key=" + apikey + "&callback=initMap";
+        document.getElementsByTagName('script')[0].parentNode.appendChild(script);
+
+        var LocsList = {{ items }};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 39.8283, lng: 98.5795};
+        });
+
+        for (i = 0; i < LocsList.length; i++) {
+            var marker = new google.maps.Marker({
+              position: {lat: LocsList[i][9], lng: LocsList[i][8]}
+              map: map,
+              title: 'LocsList[i][2]'
+            });
+          }
+      }
+    </script>
+
+   </body>
+</html>

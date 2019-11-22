@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <title>Message Board</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+   <body>
+   <div class="container-fluid" style="border:3px solid #cecece">
+        <nav class="navbar navbar-expand-sm" style="background-color:#58D68D;">
+            <div class="navbar-header px-2 justify-content-left">
+              <a class="navbar-brand" href="#"><img src="C:\Users\JVH\Documents\Programing\Python\FrameworkLibraryWork\Flask\MessBrd_AcctLogin\CommunityImage.jpg" alt="">Community Board</a>
+            </div>
+            <ul class="navbar-nav">
+              <li style="padding-left:15px"><a class="active" href="\">Home</a></li>
+              <li style="padding-left:15px"><a href="\comment">Comment</a></li>
+              <li style="padding-left:15px"><a href="\register">Register</a></li>
+              <li style="padding-left:15px"><a href="\login">Login</a></li>
+              <!--li style="padding-left:15px"><a href="\filter">Filter Comments</a></li-->
+            </ul>
+        </nav>
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li>{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
+      <!--Login option, go to another screen with option password or anonymous access-->
+        {% from "_formhelpers.html" import render_field %}
+   		<form id="logform" class="form=horizontal" method="POST" style="margin-bottom:20px">
+            <!--dl-->
+             {{ form.csrf_token }}
+            <h5 style="color: black;">Register or Login</h5>
+            <div class="col-sm-10">{{ render_field(form.firstname) }}</div>
+            <div class="col-sm-10">{{ render_field(form.lastname) }}</div>
+            <div class="col-sm-10">{{ render_field(form.email) }}</div>
+            <div class="col-sm-10">{{ render_field(form.password) }}</div>
+            <div>
+                <input class="btn-lg" type="submit" name="action" value="Register" style="margin-top:20px">
+            </div>
+		</form>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   </body>
+</html>

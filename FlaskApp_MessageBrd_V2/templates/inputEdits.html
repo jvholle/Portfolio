@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+     <title>Review and Edit Data</title>
+     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+   <body>
+     <div class="container-fluid" style="border:3px solid #cecece;">
+	  <h2 style = "text-align: left;">Complete Form for a New Claim</h2>
+      <!--h2><a href = "\">Go back to home page</a></h2  -->
+      {% from "_formhelpers.html" import render_field %}
+   		<form class="form=horizontal" method="POST">
+            <!--dl-->
+             {{ form.csrf_token }}
+            <div class="form-group">
+                <strong><label class="col-sm-2 control-label">{{ form.condition.label }}</label></strong>
+                <div class="col-sm-10">
+                {{ form.condition }}
+                </div>
+            </div>
+            <div class="col-sm-10">{{ render_field(form.status) }}</div>
+            <div class="col-sm-10">{{ render_field(form.hospital) }}</div>
+            <div class="col-sm-10">{{ render_field(form.doctor) }}</div>
+            <div class="col-sm-10">{{ render_field(form.date) }}</div>
+            <div class="col-sm-10">{{ render_field(form.client_id) }}</div><br/>
+
+            <!--/dl-->
+			<input type="submit" name="action" value="Make Claim" class="btn-lg">
+		</form>
+
+      <br/>
+       <button class="btn-lg" type="submit"><a href = "\">Back to Home Page</a></button><br/>
+     </div>
+   </body>
+</html>
